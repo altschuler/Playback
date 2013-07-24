@@ -91,6 +91,7 @@ namespace Playback.Control
             var blocked = false;
             foreach (var gameObject in this.GameObjects.Where(o => o is MovingObject))
             {
+                var innerblock = false;
                 var movingObject = (MovingObject)gameObject;
                 var contact = movingObject.Body.ContactList;
 
@@ -101,22 +102,31 @@ namespace Playback.Control
                     if (otherGo.Type == GameObjectType.Placed) //&& contact.Contact.IsTouching())
                     {
                         if (!this.PlacedObjectHasCollidedWith(otherGo, movingObject))
-                            blocked = true;
+                            blocked = innerblock = true;
                     }
 
                     contact = contact.Next;
+                }
+
+                if (!innerblock)
+                {
+                    var lastMoveState = movingObject.PopLastHistoryState();
+                    movingObject.ApplyState(lastMoveState);
                 }
             }
 
             if (blocked)
                 return;
 
-            foreach (var gameObject in this.GameObjects.Where(o => o is MovingObject))
-            {
-                var movingObject = (MovingObject)gameObject;
-                var lastMoveState = movingObject.PopLastHistoryState();
-                movingObject.ApplyState(lastMoveState);
-            }
+            // Step world 0 to detect collisions
+            this.World.Step(0);
+
+            //foreach (var gameObject in this.GameObjects.Where(o => o is MovingObject))
+            //{
+            //    var movingObject = (MovingObject)gameObject;
+            //    var lastMoveState = movingObject.PopLastHistoryState();
+            //    movingObject.ApplyState(lastMoveState);
+            //}
         }
 
         private bool PlacedObjectHasCollidedWith(GameObject placedObject, GameObject movingObject)
@@ -159,18 +169,22 @@ namespace Playback.Control
                 // TODO implement all properties of the defs
                 var body = new Body(level.World);
                 body.Position = bodyDef.Position;
+                body.Rotation = bodyDef.Angle * -1;
                 body.BodyType = bodyDef.Type;
-                
+                body.LinearVelocity = bodyDef.LinearVelocity;
+
                 foreach (var fixtureDef in bodyDef.Fixtures)
                 {
+                    Fixture fixture;
                     if (fixtureDef.Circle != null)
                     {
-                        FixtureFactory.AttachCircle(fixtureDef.Circle.Radius, fixtureDef.Density, body, fixtureDef.Circle.Center);
+                        fixture = FixtureFactory.AttachCircle(fixtureDef.Circle.Radius, fixtureDef.Density, body, fixtureDef.Circle.Center);
                     }
                     else
                     {
-                        FixtureFactory.AttachPolygon(new Vertices(fixtureDef.Polygon.Vertices.Select(v => new Vector2(v.X, v.Y)).ToArray()), fixtureDef.Density, body);
+                        fixture = FixtureFactory.AttachPolygon(new Vertices(fixtureDef.Polygon.Vertices.Select(v => new Vector2(v.X, v.Y)).ToArray()), fixtureDef.Density, body);
                     }
+                    fixture.Restitution = fixtureDef.Restitution;
                 }
 
                 GameObject gameObject;
@@ -178,8 +192,10 @@ namespace Playback.Control
                     gameObject = new MovingObject { Body = body };
                 else
                     gameObject = new GameObject { Body = body };
+
                 gameObject.Role = bodyDef.Role;
-                
+                gameObject.Name = bodyDef.Name;
+
                 body.UserData = gameObject;
 
                 level.AddGameObject(gameObject);
@@ -191,6 +207,23 @@ namespace Playback.Control
         private void AddGameObject(GameObject gameObject)
         {
             this.GameObjects.Add(gameObject);
+            if (gameObject.Role == GameObjectRole.Death)
+                gameObject.Body.OnCollision += this.OnDeathCollision;
+        }
+
+        private void RemoveGameObject(GameObject gameObject)
+        {
+            this.World.RemoveBody(gameObject.Body);
+            this.GameObjects.Remove(gameObject);
+        }
+
+        private bool OnDeathCollision(Fixture fixturea, Fixture fixtureb, Contact contact)
+        {
+            var go = this.GameObjects.FirstOrDefault(g => g.Name == "body0");
+            if (go != null)
+                this.RemoveGameObject(go);
+
+            return true;
         }
     }
 }

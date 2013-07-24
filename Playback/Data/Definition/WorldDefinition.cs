@@ -16,7 +16,7 @@ namespace Playback.Data.Definition
         public static WorldDefinition Parse(dynamic model)
         {
             var def = new WorldDefinition();
-            def.Gravity = new Vector2((float)model.gravity.x, (float)model.gravity.y);
+            def.Gravity = LevelParser.ParsePosition(model.gravity);
 
             foreach (var body in model.body)
                 def.Bodies.Add(BodyDefinition.Parse(body));

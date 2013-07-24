@@ -25,6 +25,8 @@ namespace Playback.Control
             if (inputState.LeftMouseClicked && this.PlacementManager.IsPlacingObject)
                 this.PlacementManager.PlaceObjectIntoLevel(this.Level);
 
+            this.Level.World.TestPointAll(inputState.MousePosition);
+
             // step in time
             if (inputState.TimeDirection == TimeDirection.Forward)
                 this.Level.StepForward(gameTime);

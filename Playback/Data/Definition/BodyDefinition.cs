@@ -11,7 +11,7 @@ namespace Playback.Data.Definition
         public float Angle { get; set; }
         public float AngularVelocity { get; set; }
         public bool Awake { get; set; }
-        public float LinearVelocity { get; set; }
+        public Vector2 LinearVelocity { get; set; }
         public float MassDataI { get; set; }
         public float MassDataMass { get; set; }
         public string Name { get; set; }
@@ -29,12 +29,13 @@ namespace Playback.Data.Definition
         public static BodyDefinition Parse(dynamic model)
         {
             var def = new BodyDefinition();
+            def.Name = model.name;
             def.Angle = model.angle;
             def.AngularVelocity = model.angularVelocity;
             def.Awake = model.awake;
-            def.LinearVelocity = model.linearVelocity;
-            def.Name = model.name;
-
+            def.LinearVelocity = LevelParser.ParsePosition(model.linearVelocity);
+            def.Position = LevelParser.ParsePosition(model.position);
+            
             var customProps = model.customProperties;
             if (customProps != null)
             {
@@ -63,7 +64,6 @@ namespace Playback.Data.Definition
             if (model["massData-center"] != null)
                 def.MassDataCenter = new Vector2((float)model["massData-center"].x, (float)model["massData-center"].y);
 
-            def.Position = LevelParser.ParsePosition(model.position);
 
             switch ((int)model.type)
             {

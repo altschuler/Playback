@@ -2,11 +2,13 @@
 using FarseerPhysics;
 using FarseerPhysics.DebugViews;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Playback.Control;
 using Playback.Data;
 using Playback.Helpers;
 using Playback.Utils;
+using Playback.Display;
 
 namespace Playback
 {

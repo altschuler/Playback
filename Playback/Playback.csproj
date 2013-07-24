@@ -119,6 +119,7 @@
     <Compile Include="Display\DisplayObject.cs" />
     <Compile Include="Display\DisplayObjectContainer.cs" />
     <Compile Include="Display\DisplayObjectOrigin.cs" />
+    <Compile Include="Display\Primitives2D.cs" />
     <Compile Include="Display\IDisplayObject.cs" />
     <Compile Include="Display\SolidTexture2D.cs" />
     <Compile Include="Display\Stage.cs" />
@@ -158,12 +159,6 @@
     <Content Include="Assets\StoreLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="DebugView XNA Win8">
-      <HintPath>..\..\..\..\..\Downloads\FarseerPhysicsEngine331SamplesMonogame\Farseer Physics Engine 3.3.1 Samples XNA\DebugView XNA\bin\Debug\DebugView XNA Win8.dll</HintPath>
-    </Reference>
-    <Reference Include="Farseer Physics XNA Win8">
-      <HintPath>..\..\..\..\..\Downloads\FarseerPhysicsEngine331SamplesMonogame\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\bin\Debug\Farseer Physics XNA Win8.dll</HintPath>
-    </Reference>
     <Reference Include="MonoGame.Framework">
       <HintPath>..\..\..\..\..\Downloads\FarseerPhysicsEngine331SamplesMonogame\Farseer Physics Engine 3.3.1 Samples XNA\Farseer Physics Engine 3.3 XNA\bin\Debug\MonoGame.Framework.dll</HintPath>
     </Reference>
@@ -171,7 +166,16 @@
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\netcore45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DebugView XNA\DebugView XNA Win8.csproj">
+      <Project>{5a35f979-3f1c-4da3-9c00-a0e8f089b92a}</Project>
+      <Name>DebugView XNA Win8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Farseer Physics Engine 3.3 XNA\Farseer Physics XNA Win8.csproj">
+      <Project>{8821a28e-9cb3-4fd2-972a-89785d1ef592}</Project>
+      <Name>Farseer Physics XNA Win8</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

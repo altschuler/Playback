@@ -16,21 +16,167 @@
 					"circle" : 
 					{
 						"center" : 0,
-						"radius" : 0.5
+						"radius" : 1
 					},
 					"density" : 1,
 					"friction" : 0.2,
-					"name" : "fixture1"
+					"name" : "fixture1",
+					"restitution" : 0.5
 				}
 			],
-			"linearVelocity" : 0,
-			"massData-I" : 0.09817477315664291,
-			"massData-mass" : 0.7853981852531433,
+			"linearVelocity" : 
+			{
+				"x" : 10,
+				"y" : 0
+			},
+			"massData-I" : 1.570796370506287,
+			"massData-mass" : 3.141592741012573,
 			"name" : "body3",
 			"position" : 
 			{
-				"x" : 41.15658950805664,
-				"y" : -23.60176467895508
+				"x" : 51.16056823730469,
+				"y" : -21.20844268798828
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 1
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture1",
+					"restitution" : 0.5
+				}
+			],
+			"linearVelocity" : 
+			{
+				"x" : 10,
+				"y" : 0
+			},
+			"massData-I" : 1.570796370506287,
+			"massData-mass" : 3.141592741012573,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 51.76478958129883,
+				"y" : -18.01470184326172
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 1
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture1",
+					"restitution" : 0.5
+				}
+			],
+			"linearVelocity" : 
+			{
+				"x" : 10,
+				"y" : 0
+			},
+			"massData-I" : 1.570796370506287,
+			"massData-mass" : 3.141592741012573,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 20.0,
+				"y" : -20.0
+			},
+			"type" : 2
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"customProperties" : 
+			[
+				
+				{
+					"name" : "Role",
+					"string" : "Death"
+				}
+			],
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 1
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture2"
+				}
+			],
+			"linearVelocity" : 0,
+			"name" : "body1",
+			"position" : 
+			{
+				"x" : 39.878417968750,
+				"y" : -39.86209106445313
+			},
+			"type" : 0
+		},
+		
+		{
+			"angle" : 0,
+			"angularVelocity" : 0,
+			"awake" : true,
+			"fixture" : 
+			[
+				
+				{
+					"circle" : 
+					{
+						"center" : 0,
+						"radius" : 1
+					},
+					"density" : 1,
+					"friction" : 0.2,
+					"name" : "fixture1",
+					"restitution" : 0.5
+				}
+			],
+			"linearVelocity" : 
+			{
+				"x" : 10,
+				"y" : 0
+			},
+			"massData-I" : 1.570796370506287,
+			"massData-mass" : 3.141592741012573,
+			"name" : "body3",
+			"position" : 
+			{
+				"x" : 48.65736389160156,
+				"y" : -19.91368293762207
 			},
 			"type" : 2
 		},
@@ -80,14 +226,14 @@
 			"name" : "body2",
 			"position" : 
 			{
-				"x" : 69.79860687255859,
-				"y" : -30.12932777404785
+				"x" : 60.0,
+				"y" : -20.0
 			},
 			"type" : 0
 		},
 		
 		{
-			"angle" : -0.4642303586006165,
+			"angle" : -0.7853981852531433,
 			"angularVelocity" : 0,
 			"awake" : true,
 			"customProperties" : 
@@ -111,28 +257,29 @@
 						{
 							"x" : 
 							[
-								7.831482410430908,
-								7.831478118896484,
-								-7.798931598663330,
-								-7.798932075500488
+								7.831480026245117,
+								7.831480026245117,
+								-7.798930168151856,
+								-7.798930168151856
 							],
 							"y" : 
 							[
-								-0.5729299187660217,
-								0.5993528366088867,
-								0.5993506908416748,
-								-0.5729312300682068
+								-0.5729299783706665,
+								0.5993530154228210,
+								0.5993509888648987,
+								-0.5729309916496277
 							]
 						}
-					}
+					},
+					"restitution" : 0.5
 				}
 			],
 			"linearVelocity" : 0,
 			"name" : "body0",
 			"position" : 
 			{
-				"x" : 46.27408599853516,
-				"y" : -14.94924068450928
+				"x" : 40.0,
+				"y" : -20.0
 			},
 			"type" : 0
 		}
@@ -176,11 +323,7 @@
 		]
 	},
 	"continuousPhysics" : true,
-	"gravity" : 
-	{
-		"x" : 0,
-		"y" : -10
-	},
+	"gravity" : 0,
 	"positionIterations" : 3,
 	"stepsPerSecond" : 60.0,
 	"subStepping" : false,

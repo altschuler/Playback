@@ -2,6 +2,7 @@ namespace Playback.Data.Definition
 {
     public class FixtureDefinition
     {
+        public float Restitution { get; set; }
         public float Density { get; set; }
         public float Friction { get; set; }
         public string Name { get; set; }
@@ -14,6 +15,9 @@ namespace Playback.Data.Definition
             def.Density = model.density;
             def.Friction = model.friction;
             def.Name = model.name;
+
+            if (model.restitution != null)
+                def.Restitution = model.restitution;
 
             if (model.polygon != null)
                 def.Polygon = PolygonDefinition.Parse(model.polygon);
