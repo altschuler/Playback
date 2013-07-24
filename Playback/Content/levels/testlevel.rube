@@ -43,20 +43,9 @@
     
     {
       "class" : "body",
-      "comboboxEntries" : 
-      [
-        
-        {
-          "entry" : "Target"
-        },
-        
-        {
-          "entry" : "Death"
-        }
-      ],
-      "displayName" : "Role",
-      "name" : "Role",
-      "type" : "string"
+      "displayName" : "HistoryEnabled",
+      "name" : "HistoryEnabled",
+      "type" : "bool"
     }
   ],
   "metaworld" : 
@@ -80,14 +69,6 @@
         "angle" : -0.7853981852531433,
         "angularVelocity" : 0,
         "awake" : true,
-        "customProperties" : 
-        [
-          
-          {
-            "name" : "Role",
-            "string" : "(clear)"
-          }
-        ],
         "fixture" : 
         [
           
@@ -138,6 +119,14 @@
         "angle" : 0,
         "angularVelocity" : 0,
         "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "bool" : true,
+            "name" : "HistoryEnabled"
+          }
+        ],
         "fixture" : 
         [
           
@@ -171,7 +160,7 @@
         },
         "massData-I" : 1.570796370506287,
         "massData-mass" : 3.141592741012573,
-        "name" : "body3",
+        "name" : "hero",
         "position" : 
         {
           "x" : 20.0,
@@ -184,6 +173,14 @@
         "angle" : 0,
         "angularVelocity" : 0,
         "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "bool" : true,
+            "name" : "HistoryEnabled"
+          }
+        ],
         "fixture" : 
         [
           
@@ -229,6 +226,14 @@
         "angle" : 0,
         "angularVelocity" : 0,
         "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "bool" : true,
+            "name" : "HistoryEnabled"
+          }
+        ],
         "fixture" : 
         [
           
@@ -271,54 +276,9 @@
       },
       
       {
-        "angle" : -0.1676332056522369,
-        "angularVelocity" : 0,
-        "awake" : true,
-        "fixture" : 
-        [
-          
-          {
-            "density" : 1,
-            "friction" : 0.2,
-            "id" : 5,
-            "name" : "fixture4",
-            "shapes" : 
-            [
-              
-              {
-                "type" : "line"
-              }
-            ],
-            "vertices" : 
-            {
-              "x" : [ -8.203639984130859, 8.203639984130859 ],
-              "y" : [ 0, 0 ]
-            }
-          }
-        ],
-        "id" : 5,
-        "linearVelocity" : 0,
-        "name" : "body4",
-        "position" : 
-        {
-          "x" : 36.22541809082031,
-          "y" : -25.39553833007813
-        },
-        "type" : "static"
-      },
-      
-      {
         "angle" : 0,
         "angularVelocity" : 0,
         "awake" : true,
-        "customProperties" : 
-        [
-          
-          {
-            "name" : "Role",
-            "string" : "Target"
-          }
-        ],
         "fixture" : 
         [
           
@@ -368,6 +328,14 @@
         "angle" : 0,
         "angularVelocity" : 0,
         "awake" : true,
+        "customProperties" : 
+        [
+          
+          {
+            "bool" : true,
+            "name" : "HistoryEnabled"
+          }
+        ],
         "fixture" : 
         [
           
@@ -413,14 +381,6 @@
         "angle" : 0,
         "angularVelocity" : 0,
         "awake" : true,
-        "customProperties" : 
-        [
-          
-          {
-            "name" : "Role",
-            "string" : "Death"
-          }
-        ],
         "fixture" : 
         [
           
@@ -453,6 +413,40 @@
           "y" : -39.86209106445313
         },
         "type" : "static"
+      }
+    ],
+    "metajoint" : 
+    [
+      
+      {
+        "anchorA" : 
+        {
+          "x" : -48.65739822387695,
+          "y" : 19.91370010375977
+        },
+        "anchorB" : 
+        {
+          "x" : -51.76480102539063,
+          "y" : 18.01469993591309
+        },
+        "bodyA" : 10,
+        "bodyB" : 3,
+        "collideConnected" : false,
+        "enableLimit" : false,
+        "enableMotor" : false,
+        "id" : 1,
+        "localAxisA" : 
+        {
+          "x" : 0,
+          "y" : 1
+        },
+        "lowerLimit" : 0,
+        "maxMotorForce" : 0,
+        "motorSpeed" : 0,
+        "name" : "joint0",
+        "referenceAngle" : 0,
+        "type" : "prismatic",
+        "upperLimit" : 0
       }
     ],
     "positionIterations" : 3,

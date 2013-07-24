@@ -1,6 +1,6 @@
-using Playback.Logic;
+using Playback.Data.Element;
 
-namespace Playback.Control
+namespace Playback.Data
 {
     public static class ConsequenceFactory
     {

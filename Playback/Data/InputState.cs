@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
+using Playback.Logic;
 
-namespace Playback.Control
+namespace Playback.Data
 {
     public struct InputState
     {

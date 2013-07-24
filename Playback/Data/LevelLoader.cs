@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
-using Playback.Control;
 using Playback.Data.Definition;
+using Playback.Data.Element;
 using Windows.ApplicationModel;
 using Windows.Storage;
 
 namespace Playback.Data
 {
-    public class LevelParser
+    public class LevelLoader
     {
-        public async static Task<Level> Parse(string fileName)
+        public async static Task<Level> LoadFromFile(string fileName)
         {
             var text = await ReadFile(fileName);
 
@@ -19,7 +18,7 @@ namespace Playback.Data
 
             var worldDef = WorldDefinition.Parse(json);
 
-            return Level.ParseWorldDefinition(worldDef);
+            return LevelParser.ParseWorldDefinition(worldDef);
         }
 
         public static async Task<string> ReadFile(string fileName)
@@ -30,18 +29,6 @@ namespace Playback.Data
             var configData = await FileIO.ReadTextAsync(storageFile);
 
             return configData;
-        }
-
-        public static Vector2 ParsePosition(dynamic model)
-        {
-            try
-            {
-                return new Vector2((float)model);
-            }
-            catch
-            {
-                return new Vector2((float)model.x, -(float)model.y);
-            }
         }
     }
 }

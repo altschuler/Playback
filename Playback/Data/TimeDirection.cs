@@ -1,4 +1,4 @@
-namespace Playback.Control
+namespace Playback.Data
 {
     public enum TimeDirection
     {

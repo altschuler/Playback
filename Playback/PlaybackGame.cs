@@ -4,9 +4,9 @@ using FarseerPhysics.DebugViews;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Playback.Control;
 using Playback.Data;
 using Playback.Helpers;
+using Playback.Logic;
 using Playback.Utils;
 using Playback.Display;
 
@@ -40,7 +40,7 @@ namespace Playback
         protected async override void Initialize()
         {
             this.GameWorld = new GameWorld();
-            var level = await LevelParser.Parse("testlevel.json");
+            var level = await LevelLoader.LoadFromFile("testlevel.json");
             
             this.GameWorld.LoadLevel(level);
 
@@ -69,7 +69,7 @@ namespace Playback
         protected override void Draw(GameTime gameTime)
         {
             this.GraphicsDevice.Clear(Color.Black);
-
+            
             var proj = Matrix.CreateOrthographic(ConvertUnits.ToSimUnits(
                 this.Graphics.PreferredBackBufferWidth),
                 -ConvertUnits.ToSimUnits(this.Graphics.PreferredBackBufferHeight), 0, 1);

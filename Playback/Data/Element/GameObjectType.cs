@@ -1,4 +1,4 @@
-namespace Playback.Logic
+namespace Playback.Data.Element
 {
     public enum GameObjectType
     {

@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace Playback.Logic
+namespace Playback.Data.Element
 {
     public struct GameObjectState
     {

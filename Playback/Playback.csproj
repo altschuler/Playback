@@ -100,21 +100,29 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Control\ConsequenceFactory.cs" />
-    <Compile Include="Control\GameWorld.cs" />
-    <Compile Include="Control\InputState.cs" />
-    <Compile Include="Control\IPlaceableObject.cs" />
-    <Compile Include="Control\Level.cs" />
-    <Compile Include="Control\LevelParser.cs" />
-    <Compile Include="Control\PlaceableRectangle.cs" />
-    <Compile Include="Control\PlacementManager.cs" />
-    <Compile Include="Control\TimeDirection.cs" />
+    <Compile Include="Data\ConsequenceFactory.cs" />
+    <Compile Include="Data\Element\CollectibleObject.cs" />
+    <Compile Include="Data\Element\Consequence.cs" />
+    <Compile Include="Data\Element\GameObject.cs" />
+    <Compile Include="Data\Element\GameObjectState.cs" />
+    <Compile Include="Data\Element\GameObjectType.cs" />
+    <Compile Include="Data\Element\Level.cs" />
+    <Compile Include="Data\Element\MessageReward.cs" />
+    <Compile Include="Data\Element\Reward.cs" />
+    <Compile Include="Data\Element\TriggerObject.cs" />
+    <Compile Include="Data\Element\WinLevelConsequence.cs" />
+    <Compile Include="Data\IInvokeable.cs" />
+    <Compile Include="Data\InputState.cs" />
+    <Compile Include="Data\LevelLoader.cs" />
     <Compile Include="Data\Definition\BodyDefinition.cs" />
     <Compile Include="Data\Definition\CircleDefinition.cs" />
     <Compile Include="Data\Definition\FixtureDefinition.cs" />
     <Compile Include="Data\Definition\PolygonDefinition.cs" />
     <Compile Include="Data\Definition\VertexDefinition.cs" />
     <Compile Include="Data\Definition\WorldDefinition.cs" />
+    <Compile Include="Data\LevelParser.cs" />
+    <Compile Include="Data\RewardFactory.cs" />
+    <Compile Include="Data\TimeDirection.cs" />
     <Compile Include="Display\AnimatedDisplayObject.cs" />
     <Compile Include="Display\DisplayObject.cs" />
     <Compile Include="Display\DisplayObjectContainer.cs" />
@@ -125,16 +133,9 @@
     <Compile Include="Display\Stage.cs" />
     <Compile Include="Display\TextField.cs" />
     <Compile Include="Display\WorldStage.cs" />
-    <Compile Include="Helpers\HistoryHelper.cs" />
     <Compile Include="Helpers\InputHelper.cs" />
-    <Compile Include="Logic\GameObject.cs" />
-    <Compile Include="Logic\GameObjectRole.cs" />
-    <Compile Include="Logic\GameObjectState.cs" />
-    <Compile Include="Logic\GameObjectType.cs" />
-    <Compile Include="Logic\IInvokeable.cs" />
-    <Compile Include="Logic\MovingObject.cs" />
-    <Compile Include="Logic\Reward.cs" />
-    <Compile Include="Logic\RewardFactory.cs" />
+    <Compile Include="Logic\GameWorld.cs" />
+    <Compile Include="Logic\PlacementManager.cs" />
     <Compile Include="PlaybackGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

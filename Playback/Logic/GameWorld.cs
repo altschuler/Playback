@@ -1,9 +1,10 @@
 using FarseerPhysics.Dynamics;
 using FarseerPhysics.Factories;
 using Microsoft.Xna.Framework;
-using Playback.Logic;
+using Playback.Data;
+using Playback.Data.Element;
 
-namespace Playback.Control
+namespace Playback.Logic
 {
     public class GameWorld
     {

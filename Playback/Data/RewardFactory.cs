@@ -1,6 +1,6 @@
-using Playback.Control;
+using Playback.Data.Element;
 
-namespace Playback.Logic
+namespace Playback.Data
 {
     public static class RewardFactory
     {

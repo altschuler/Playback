@@ -7,7 +7,7 @@ namespace Playback.Data.Definition
 {
     public class BodyDefinition
     {
-        public GameObjectRole Role { get; set; }
+        public bool HistoryEnabled { get; set; }
         public float Angle { get; set; }
         public float AngularVelocity { get; set; }
         public bool Awake { get; set; }
@@ -35,21 +35,15 @@ namespace Playback.Data.Definition
             def.Awake = model.awake;
             def.LinearVelocity = LevelParser.ParsePosition(model.linearVelocity);
             def.Position = LevelParser.ParsePosition(model.position);
-            
+
             var customProps = model.customProperties;
             if (customProps != null)
             {
                 foreach (var prop in customProps)
                 {
-                    if (prop.name == "Role")
+                    if (prop.name == "HistoryEnabled")
                     {
-                        switch ((string)prop["string"])
-                        {
-                            case "Target": def.Role = GameObjectRole.Target;
-                                break;
-                            case "Death": def.Role = GameObjectRole.Death;
-                                break;
-                        }
+                        def.HistoryEnabled = (bool)prop["bool"];
                     }
                 }
             }

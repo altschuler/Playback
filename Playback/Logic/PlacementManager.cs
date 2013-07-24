@@ -1,8 +1,9 @@
 using FarseerPhysics.Dynamics;
-using Playback.Logic;
+using Playback.Data;
+using Playback.Data.Element;
 using Playback.Utils;
 
-namespace Playback.Control
+namespace Playback.Logic
 {
     public class PlacementManager
     {
